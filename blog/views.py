@@ -1,6 +1,6 @@
 from django.shortcuts import render
 #from django.http import HttpResponse
-from .models import Post
+from .models import Post, Tag
 
 def hello(request):
     p= Post.objects.all()
@@ -9,3 +9,7 @@ def hello(request):
 def post_detail(request, slug):
     p = Post.objects.get(slug__iexact=slug)
     return render(request, 'blog/post_detail.html',context={'post': p})
+
+def tags_list(request):
+    tags = Tag.objects.all()
+    return render(request, 'blog/tags_list.html', context ={'tags':tags})
