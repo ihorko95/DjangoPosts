@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
 
-    <form action="{%url 'tag_delete_url' slug=tag.slug%}" method="post">
+    <form action="{{ tag.delete_url }}" method="post">
         {% csrf_token %}
         <h2>Do you really want delete the Tag {{ tag.title|title }}?</h2>
         <a class = 'btn btn-link' href="{% url 'tags_list_url' %}">Cancel</a>
