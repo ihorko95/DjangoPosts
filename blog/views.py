@@ -13,7 +13,7 @@ def hello(request):
 
 class PostCreate(ObjectCreateMixin, View):
     form_model = PostForm
-    tamplate = 'blog/post_create.html'
+    template = 'blog/post_create.html'
 
 class PostDetail(ObjectDetailMixin,View):
     model = Post
@@ -29,4 +29,9 @@ class TagDetail(ObjectDetailMixin,View):
 
 class TagCreate(ObjectCreateMixin,View):
     form_model = TagForm
-    tamplate = 'blog/tag_create.html'
+    template = 'blog/tag_create.html'
+class TagUpdate(ObjectUpdateMixin,View):
+    model = Tag
+    form_model = TagForm
+    template = 'blog/tag_update.html'
+
