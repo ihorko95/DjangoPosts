@@ -34,6 +34,6 @@ class ObjectUpdateMixin:
         bound_form = self.form_model(instance=obj)
         return render(request, self.template, context={
             'form': bound_form,
-            'tag': obj
-            #str(self.model).lower(): obj
+            #'tag': obj
+            str(self.model).lower(): obj
         })

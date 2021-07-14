@@ -14,6 +14,10 @@ def hello(request):
 class PostCreate(ObjectCreateMixin, View):
     form_model = PostForm
     template = 'blog/post_create.html'
+class PostUpdate(ObjectUpdateMixin,View):
+    model = Post
+    form_model = PostForm
+    template = 'blog/post_update.html'
 
 class PostDetail(ObjectDetailMixin,View):
     model = Post
