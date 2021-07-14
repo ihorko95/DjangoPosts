@@ -22,6 +22,7 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li><a class="nav-link active" aria-current="page" href="/admin">Admin</a></li>
             <li><a class="nav-link active" aria-current="page" href="{% url 'post_list_url' %}">Posts</a></li>
             <li class="nav-item">
               <a class="nav-link" href="{% url 'post_create_url' %}">Post Create</a>
@@ -43,10 +44,13 @@
     <p>Nothing to show for you</p>
 {% endblock %}
     </div>
-    <div class="admin-panel align-items-center">
-    <a href="/admin" class="btn btn-outline-info">Admin</a>
-{% block admin-panel %}
-{% endblock %}
-    </div>
+
+    {%if request.user.is_authenticated  and request.user.is_staff %}
+        <div class="admin-panel align-items-center">
+            <a href="/admin" class="btn btn-outline-info">Admin</a>
+            {% block admin-panel %}
+            {% endblock %}
+        </div>
+    {% endif %}
 </body>
 </html>
