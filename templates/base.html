@@ -18,14 +18,13 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li><a class="nav-link active" aria-current="page" href="{% url 'post_list_url' %}">Posts</a></li>
             <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="{% url 'post_list_url' %}">Posts</a>
+              <a class="nav-link" href="{% url 'post_create_url' %}">Post Create</a>
             </li>
+            <li><a class="nav-link active" aria-current="page" href="{% url 'tags_list_url' %}">Tags</a></li>
             <li class="nav-item">
-              <a class="nav-link" href="{% url 'tags_list_url' %}">Tags</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              <a class="nav-link" href="{% url 'tag_create_url' %}">Tag Create</a>
             </li>
           </ul>
           <form class="d-flex">
@@ -35,8 +34,10 @@
         </div>
       </div>
     </nav>
+    <div class="container-sm">
 {% block content %}
     <p>Nothing to show for you</p>
 {% endblock %}
+    </div>
 </body>
 </html>
