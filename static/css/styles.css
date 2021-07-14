@@ -13,3 +13,6 @@
 .admin-panel:hover{
     opacity: 1;
 }
+a.update,a.delete{
+    display: none;
+}
