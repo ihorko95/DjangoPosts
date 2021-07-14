@@ -51,3 +51,14 @@ class ObjectUpdateMixin:
             'form': bound_form,
             self.model.__name__.lower(): obj
         })
+class ObjectDeleteMixin:
+    model = None
+    template = None
+    redir = None
+    def get(self, request, slug):
+        obj =self.model.objects.get(slug__iexact=slug)
+        return render(request, self.template, context={self.model.__name__.lower(): obj})
+    def post(self,request, slug):
+        obj = self.model.objects.get(slug__iexact=slug)
+        obj.delete()
+        return redirect(reverse(self.redir))

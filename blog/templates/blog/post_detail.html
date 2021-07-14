@@ -8,4 +8,5 @@
     <h1 class="mt-5">{{ post.title }}</h1>
     <p>{{ post.body }}</p>
     <a href={{ post.update_url }}>edit</a>
+    <a href={% url 'post_delete_url' slug=post.slug %}>delete</a>
 {% endblock %}

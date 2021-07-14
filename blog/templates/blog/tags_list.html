@@ -8,6 +8,7 @@
         <p>
             <h3> <a href={{tag.get_absolute_url}}>{{ tag.title }}</a></h3>
             <h5> <a href={{ tag.update_url }}>edit</a></h5>
+            <h5> <a href={% url 'tag_delete_url' slug=tag.slug %}>delete</a></h5>
         </p>
     {% endfor %}
 {% endblock %}

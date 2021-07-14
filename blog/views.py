@@ -3,6 +3,7 @@ from django.shortcuts import get_object_or_404
 #from django.http import HttpResponse
 from .models import Post, Tag
 from django.views.generic import View
+from django.urls import  reverse
 from .forms import TagForm, PostForm
 
 from .utils import *
@@ -18,6 +19,10 @@ class PostUpdate(ObjectUpdateMixin,View):
     model = Post
     form_model = PostForm
     template = 'blog/post_update.html'
+class PostDelete(ObjectDeleteMixin,View):
+    model = Post
+    template = 'blog/post_delete.html'
+    redir = 'post_list_url'
 
 class PostDetail(ObjectDetailMixin,View):
     model = Post
@@ -38,4 +43,17 @@ class TagUpdate(ObjectUpdateMixin,View):
     model = Tag
     form_model = TagForm
     template = 'blog/tag_update.html'
+
+class TagDelete(ObjectDeleteMixin,View):
+    model = Tag
+    template = 'blog/tag_delete.html'
+    redir = 'tags_list_url'
+    # def get(self, request, slug):
+    #     tag =Tag.objects.get(slug__iexact=slug)
+    #     return render(request, 'blog/tag_delete.html', context={'tag': tag})
+    # def post(self,request, slug):
+    #     tag = Tag.objects.get(slug__iexact=slug)
+    #     tag.delete()
+    #     return redirect(reverse('tags_list_url'))
+
 
