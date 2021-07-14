@@ -1,0 +1,15 @@
+.admin-panel{
+    border: 1px solid #999;
+    border-radius: 7px;
+    position: fixed;
+    right: 50px;
+    bottom: 30px;
+    opacity: .3;
+}
+.admin-panel a{
+    display: block;
+    margin:5px 0;
+}
+.admin-panel:hover{
+    opacity: 1;
+}

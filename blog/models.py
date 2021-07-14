@@ -21,6 +21,7 @@ class Post(models.Model):
         return reverse('post_update_url', kwargs={'slug': self.slug})
     def delete_url(self):
         return reverse('post_list_url')
+        #return reverse('post_delete_url_url', kwargs={'slug': self.slug})
     def __str__(self):
         return '{}'.format(self.title)
 
@@ -33,6 +34,7 @@ class Tag(models.Model):
         return reverse('tag_update_url', kwargs={'slug':self.slug})
     def delete_url(self):
         return reverse('tags_list_url')
+        #return reverse('tag_delete_url', kwargs={'slug': self.slug})
 
     def __str__(self):
         return '{}'.format(self.title)

@@ -1,1 +1,6 @@
 {% extends 'base.html' %}
+{% block admin-panel  %}
+    <a href="" class="btn btn-light">Create</a>
+    <a href="{{ admin_object.update_url }}" class="btn btn-light">Edit</a>
+    <a href="{{ admin_object.delete_url }}" class="btn btn-danger">Delete</a>
+{% endblock %}
