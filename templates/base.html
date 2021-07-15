@@ -43,6 +43,41 @@
 {% block content %}
     <p>Nothing to show for you</p>
 {% endblock %}
+    {% if paginated %}
+
+
+    <nav aria-label="...">
+  <ul class="pagination">
+
+
+      <li class="page-item{% if not prev_url %} disabled {% endif %} ">
+      <a class="page-link" href="{{ prev_url}}">Previous</a>
+    </li>
+
+
+      {% for n in page.paginator.page_range %}
+          {% if page.number == n %}
+              <li class="page-item active" aria-current="page">
+                <span class="page-link">{{ n }}</span>
+              </li>
+              {% elif n > page.number|add:-3 and n < page.number|add:3 %}
+                <li class="page-item"><a class="page-link" href="?page={{ n }}">{{ n }}</a></li>
+          {% endif %}
+
+
+      {% endfor %}
+
+
+    <li class="page-item{% if not next_url %} disabled {% endif %} ">
+      <a class="page-link" href="{{ next_url }}">Next</a>
+    </li>
+
+
+
+
+  </ul>
+</nav>
+        {% endif %}
     </div>
 
     {%if request.user.is_authenticated  and request.user.is_staff %}
